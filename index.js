@@ -12,6 +12,11 @@ inquirer
         },
         {
          type: 'input',
+         message: 'Please provide a short description of your project:',
+         name: 'description',
+        },
+        {
+         type: 'input',
          message: 'What problem does your project solve?/Why build it?',
          name: 'problem',
         },
@@ -46,11 +51,6 @@ inquirer
          name: 'screenshot',
         },
         {
-         type: 'checkbox',
-         message: 'Please select any relevant licenses:',
-         name: 'license',
-        },
-        {
          type: 'input',
          message: 'How can someone contribute to your project?',
          message: 'contributing',
@@ -69,6 +69,12 @@ inquirer
          type: 'input',
          message: 'What is your email address?',
          name: 'email',
+        },
+        {
+         type: 'checkbox',
+         message: 'Please select any relevant licenses:',
+         name: 'license',
+         choices: [],
         }
     ])
 
