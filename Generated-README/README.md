@@ -1,6 +1,6 @@
 # m
 
-undefined
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
 
 ## Table of Contents
 
@@ -47,7 +47,7 @@ m
 
 ## Questions
 
-GitHub username: m
+GitHub username: m  
 GitHub profile: [GitHub Profile](https://github.com/m)
 
 For questions, please email: <m>

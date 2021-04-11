@@ -2,15 +2,14 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
     if (license === 'MIT') {
-        return ('[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]')
+        return ('![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)')
     } else if (license === 'Apache') {
-        return ('[![License: Apache](https://img.shields.io/badge/License-Apache%202.0-blue.svg)]')
+        return ('![License: Apache](https://img.shields.io/badge/License-Apache%202.0-blue.svg)')
     } else if (license === 'GPLv2') {
-        return ('[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)]')
-    } else if (license === ('MIT' && 'Apache')) {
-        return ('[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]' + ' ' + '[![License: Apache](https://img.shields.io/badge/License-Apache%202.0-blue.svg)]')
+        return ('![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)')
+    } else {
+        return ('')
     }
-    // Am I in the right direction
 }
 
 // TODO: Create a function that returns the license link
@@ -25,7 +24,7 @@ function renderLicenseSection(license) {}
 function generateMarkdown(data) {
   return `# ${data.title}
 
-${renderLicenseBadge()}
+${renderLicenseBadge(data.license)}
 
 ## Table of Contents
 
@@ -72,14 +71,14 @@ ${data.tests}
 
 ## Questions
 
-GitHub username: ${data.github}
+GitHub username: ${data.github}  
 GitHub profile: [GitHub Profile](https://github.com/${data.github})
 
-For questions, please email: ${data.email}
+For questions, please email: <${data.email}>
 
 ## License
 
-${renderLicenseSection()}`;
+${renderLicenseSection(data.license)}`;
 }
 
 module.exports = generateMarkdown;

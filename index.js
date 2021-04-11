@@ -53,7 +53,7 @@ const questions = [
    {
     type: 'input',
     message: 'How can someone contribute to your project?',
-    message: 'contributing',
+    name: 'contributing',
    },
    {
     type: 'input',
@@ -71,7 +71,7 @@ const questions = [
     name: 'email',
    },
    {
-    type: 'checkbox',
+    type: 'list',
     message: 'Please select any relevant licenses:',
     name: 'license',
     choices: ['MIT', 'Apache', 'GPLv2'],
@@ -79,10 +79,9 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, function(err) {
+function writeToFile(fileName, template) {
+    fs.writeFile(fileName, template, function(err) {
         console.log(fileName);
-        console.log(data);
 
         if (err) {
             return console.log(err);
@@ -96,33 +95,14 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer
      .prompt(questions)
-     .then((data) => {
-         writeToFile("README.md", markdown);
-         console.log(data);
+     .then((answers) => {
+         console.log(answers);
+         var readme = markdown(answers);
+         console.log(readme);
+         writeToFile("./Generated-README/README.md", readme);
      });
 }
 
 // Function call to initialize app
 init();
 
-/* function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, function(err) {
-        console.log(fileName)
-        console.log(data)
-        if(err) {
-            return console.log(err)
-        } else {
-            console.log("success")
-        }
-    })
-}
-// TODO: Create a function to initialize app
-function init() {
-    inquirer.prompt(questions)
-        .then(function(data) {
-            writeToFile("README.md", generateMarkDown(data));
-            console.log(data)
-        })
-}
-// Function call to initialize app
-init();*/
