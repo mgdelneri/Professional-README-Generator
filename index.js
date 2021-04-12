@@ -99,7 +99,7 @@ function init() {
          // console.log(answers);
          var readme = markdown(answers);
          // console.log(readme);
-         writeToFile("./Generated-README/README.md", readme);
+         writeToFile('./Generated-README/README.md', readme);
      });
 }
 
